@@ -1,0 +1,42 @@
+{% extends "top.html" %}
+
+{% block content %}
+<div class="restaurant-info">
+    <h1 style="font-style: italic; color: rgb(255, 84, 22)">{{ restaurant.name }}</h1>
+    <img src="{{ restaurant.featured_image }}" alt="{{ restaurant.name }}">
+    <p><strong><span style="font-style: italic;">Cuisine:</span></strong> <span style="font-style: italic; color: rgb(255, 84, 22);">{{ restaurant.cuisines }}</span></p>
+    <p><strong><span style="font-style: italic;">Rating:</span></strong> <span style="font-style: italic; color: rgb(255, 84, 22)">✨ {{ restaurant.user_rating.aggregate_rating }}</span></p>
+    <p><strong><span style="font-style: italic;">Address:</span></strong><span style="font-style: italic;"></span></strong> <span style="font-style: italic; color: rgb(255, 84, 22);">{{ restaurant.location.address }}</span></p>
+    <p><a href="{{ restaurant.menu_url }}" target="_blank" style="font-style: italic; font-family: Arial, sans-serif; color: rgb(255, 84, 22);">😋 Get the Full Foodie Scoop!</a></p>
+    <a href="{{ url_for('index') }}" class="back">◄ Back</a>
+</div>
+
+<!-- Internal CSS -->
+<style>
+    .restaurant-info {
+        background-color: black;
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
+    }
+    .restaurant-info img {
+        width: 100%;
+        max-height: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .back {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #fd5400;
+        color: white;
+        text-decoration: none;
+        border-radius: 7px;
+    }
+
+</style>
+{% endblock %}
